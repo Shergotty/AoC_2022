@@ -1,0 +1,8 @@
+pandas
+numpy
+path
+pylint
+SQLAlchemy
+django
+mssql-django
+flask
