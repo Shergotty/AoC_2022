@@ -11,7 +11,7 @@ def get_fileinput(filename: str) -> list:
     return [x.strip() for x in content]
 
 
-def create_simple_dict(char_list):
+def create_simple_dict(char_list: list) -> dict:
 
     alphabet = defaultdict(list)
 
@@ -28,7 +28,7 @@ def calc_value(letter_list: list) -> int:
     return [alphabet[list(i)[0]] for i in letter_list]
 
 
-def get_common_item(list_in: list):
+def get_common_item(list_in: list) -> list:
 
     splitted_items = []
 
@@ -40,14 +40,14 @@ def get_common_item(list_in: list):
 # https://grabthiscode.com/python/split-list-on-every-nth-element-python
 
 
-def chunks(list_in, n):
+def chunks(list_in: list, n: int) -> list:
     # For item i in a range that is a length of l,
     for i in range(0, len(list_in), n):
         # Create an index range for l of n items:
         yield list_in[i:i+n]
 
 
-def part_1():
+def part_1() -> int:
     backpacks = [
         [[*i][len(i)//2:], [*i][:len(i)//2]]
         for i in puzzle_list
@@ -59,7 +59,7 @@ def part_1():
     return sum(shared_items)
 
 
-def part_2():
+def part_2() -> int:
 
     backpacks = list(chunks(puzzle_list, 3))
     backpacks = get_common_item(backpacks)
