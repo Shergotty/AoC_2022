@@ -6,12 +6,8 @@ def get_fileinput(filename: str) -> list:
         content = f.readlines()
     return [x.strip('\n') for x in content]
 
-
-
-
 def shifter(code_in, start_shift: int, shift: int) -> set:
     return code_in[start_shift:shift]
-
 
 def get_first_signal(code_in:str, shift_chunk:int)-> int:
 
@@ -32,11 +28,5 @@ def get_first_signal(code_in:str, shift_chunk:int)-> int:
 filename = 'debug.txt'
 filename = 'day_6_1.txt'
 puzzle_list = get_fileinput(filename)
-
-
-
-shift_chunk = 4
-a = [get_first_signal(code_in, shift_chunk) for code_in in puzzle_list]
-shift_chunk = 14
-b = [get_first_signal(code_in, shift_chunk) for code_in in puzzle_list]
+a,b = [[get_first_signal(code_in, shift_chunk) for code_in in puzzle_list] for shift_chunk in [4, 14]]
 print(a,b)
